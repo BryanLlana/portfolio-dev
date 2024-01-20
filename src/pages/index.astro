@@ -2,9 +2,14 @@
 import LinkedinIcon from '../icons/Linkedin.astro';
 import GithubIcon from '../icons/Github.astro';
 import MailIcon from '../icons/Mail.astro';
+import BriefCaseIcon from '../icons/BriefCase.astro';
+import CodeIcon from '../icons/Code.astro';
 import Badge from '../components/Badge.astro';
+import SectionContainer from '../components/SectionContainer.astro';
 import Layout from '../layouts/Layout.astro';
 import SocialPill from '../components/SocialPill.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
 ---
 
 <Layout	
@@ -12,10 +17,10 @@ import SocialPill from '../components/SocialPill.astro';
 	description='Contrata a Bryan para crear tu aplicación web. Desarrollador Web. Especializado en crear aplicaciones únicas'
 >
 	<main>
-		<section class="w-full lg:w-[800px] mx-auto py-10 gap-5">
+		<SectionContainer id="about" class="w-full lg:w-[800px] mx-auto py-10 gap-5">
 			<img class="rounded-full w-[250px] h-[250px]" src="/img/perfil.jpeg" alt="Photo">
 			<div class="mt-5">
-				<h1 class="text-white text-5xl font-bold flex gap-4 pb-4">
+				<h1 class="text-white text-3xl md:text-5xl font-bold flex gap-4 pb-4">
 					Hola, soy Bryan
 					<a
 						href="https://www.linkedin.com/in/bryanllana/"
@@ -26,12 +31,12 @@ import SocialPill from '../components/SocialPill.astro';
 						<Badge>Disponible para trabajar</Badge>
 					</a>
 				</h1>
-				<h2 class="text-2xl opacity-80 text-wrap">
+				<h2 class="text-xl md:text-2xl opacity-80 text-wrap max-w-[800px]">
 					<span class="text-yellow-200/90">Desarrollador web.</span>
 					<span class="text-red-200/90">De Lima, Perú.</span>
 					Especializado en crear aplicaciones interesantes.
 				</h2>
-				<nav class="flex gap-2 mt-6 flex-col md:flex-row">
+				<nav class="flex gap-2 mt-6 flex-wrap">
 					<SocialPill href="https://www.linkedin.com/in/bryanllana/">
 						<LinkedinIcon class="w-6 h-6"/>
 						Linkedin
@@ -40,12 +45,28 @@ import SocialPill from '../components/SocialPill.astro';
 						<GithubIcon class="w-6 h-6"/>
 						GitHub
 					</SocialPill>
-					<SocialPill>
+					<SocialPill href="mailto:bryanllana14@gmail.com">
 						<MailIcon />
 						bryanllana14@gmail.com
 					</SocialPill>
 				</nav>
 			</div>
-		</section>
+		</SectionContainer>
+
+		<!-- <SectionContainer id="experience">
+			<h2 class="text-4xl font-semibold mb-5 flex gap-3 items-center">
+				<BriefCaseIcon class="size-8" />
+				Experiencia Laboral
+			</h2>
+			<Experience />
+		</SectionContainer> -->
+
+		<SectionContainer id="projects">
+			<h2 class="text-4xl font-semibold mb-5 flex gap-3 items-center">
+				<CodeIcon class="size-8" />
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>
 	</main>
 </Layout>

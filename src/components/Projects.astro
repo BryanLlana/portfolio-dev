@@ -1,0 +1,68 @@
+---
+import VueIcon from '../icons/VueIcon.astro'
+import TailwindCssIcon from '../icons/TailwindCssIcon.astro'
+import NodeIcon from '../icons/NodeIcon.astro'
+import MongoIcon from '../icons/MongoIcon.astro'
+import GithubIcon from '../icons/Github.astro'
+const TAGS = {
+  VUE: {
+    name: 'VueJs',
+    class: 'bg-[#EBEBEB] text-[#41B883]',
+    icon: VueIcon
+  },
+  TAILWIND: {
+    name: 'Tailwind Css',
+    class: 'bg-[#003159] text-white',
+    icon: TailwindCssIcon
+  },
+  NODE: {
+    name: 'NodeJs',
+    class: 'bg-[#EBEBEB] text-[#549746]',
+    icon: NodeIcon
+  },
+  MONGO: {
+    name: 'MongoDB',
+    class: 'bg-[#EBEBEB] text-[#0BDE64]',
+    icon: MongoIcon
+  }
+}
+const projects = [
+  {
+    title: 'AppSalon',
+    description: 'Lorem ipsum dsdsds dsdsd f fnjdn fjd fdn jdnf dnjfndnfdnf jdn fdjnfjdnfjndn fdf ndnfkjd',
+    link: 'https://appsalon-frontend-dun.vercel.app/auth/login',
+    github: 'https://github.com/BryanLlana/appsalon_frontend',
+    image: '/img/appsalon.webp',
+    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO]
+  }
+]
+---
+{
+  projects.map(project => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2 flex gap-2 items-center">
+        {project.title}
+        <a href={project.github} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
+          <GithubIcon class="size-5" />
+          GitHub
+        </a>
+      </h3>
+      <p class="text-lg mb-4 text-pretty">{project.description}</p>
+      <ul class="flex gap-2 mb-4 flex-wrap">
+        {
+          project.tags.map(tag => (
+            <li>
+              <span class={`${tag.class} flex items-center gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 `}>
+                <tag.icon class="size-5" />
+                {tag.name}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+      <a href={project.link} target="_blank" rel="noopener">
+        <img class="rounded shadow-2xl shadow-white/10" src={project.image} alt={`Captura de pantalla del proyecto ${project.image}`}>
+      </a>
+    </article>
+  ))
+}
