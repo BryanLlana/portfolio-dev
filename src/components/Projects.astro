@@ -29,11 +29,13 @@ const TAGS = {
 const projects = [
   {
     title: 'AppSalon',
-    description: 'Lorem ipsum dsdsds dsdsd f fnjdn fjd fdn jdnf dnjfndnfdnf jdn fdjnfjdnfjndn fdf ndnfkjd',
+    description: 'Aplicación web especializada para barberías o salones de belleza, que brinda a los usuarios la capacidad de crear cuentas, facilitando así la reserva de citas de manera eficiente mediante la selección de servicios personalizados según sus necesidades y preferencias. Un proyecto fullstack que engloba tanto el desarrollo del backend como del frontend, asegurando una implementación completa y eficiente que abarca la lógica del servidor y la interfaz de usuario.',
     link: 'https://appsalon-frontend-dun.vercel.app/auth/login',
-    github: 'https://github.com/BryanLlana/appsalon_frontend',
+    githubFrontend: 'https://github.com/BryanLlana/appsalon_frontend',
+    githubBackend: 'https://github.com/BryanLlana/appsalon_backend',
     image: '/img/appsalon.webp',
-    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO]
+    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO],
+    fullstack: true
   }
 ]
 ---
@@ -42,12 +44,23 @@ const projects = [
     <article>
       <h3 class="text-2xl font-semibold text-yellow-200 mb-2 flex gap-2 items-center">
         {project.title}
-        <a href={project.github} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
-          <GithubIcon class="size-5" />
-          GitHub
-        </a>
+        { project.fullstack ? (
+          <a href={project.githubFrontend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
+            <GithubIcon class="size-5" />
+            GitHubFrontend
+          </a>
+          <a href={project.githubBackend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
+            <GithubIcon class="size-5" />
+            GitHubBackend
+          </a>
+        ) : (
+          <a href={project.githubFrontend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
+            <GithubIcon class="size-5" />
+            GitHub
+          </a>
+        ) }
       </h3>
-      <p class="text-lg mb-4 text-pretty">{project.description}</p>
+      <p class="text-lg mb-5 text-pretty">{project.description}</p>
       <ul class="flex gap-2 mb-4 flex-wrap">
         {
           project.tags.map(tag => (
