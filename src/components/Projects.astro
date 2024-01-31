@@ -4,6 +4,8 @@ import TailwindCssIcon from '../icons/TailwindCssIcon.astro'
 import NodeIcon from '../icons/NodeIcon.astro'
 import MongoIcon from '../icons/MongoIcon.astro'
 import GithubIcon from '../icons/Github.astro'
+import FirebaseIcon from '../icons/FirebaseIcon.astro'
+import TypescriptIcon from '../icons/TypescriptIcon.astro'
 const TAGS = {
   VUE: {
     name: 'VueJs',
@@ -24,6 +26,16 @@ const TAGS = {
     name: 'MongoDB',
     class: 'bg-[#EBEBEB] text-[#0BDE64]',
     icon: MongoIcon
+  },
+  FIREBASE: {
+    name: 'Firebase',
+    class: 'bg-[#EBEBEB] text-[#F6820C]',
+    icon: FirebaseIcon
+  },
+  TYPESCRIPT: {
+    name: 'TypeScript',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: TypescriptIcon
   }
 }
 const projects = [
@@ -34,24 +46,33 @@ const projects = [
     githubFrontend: 'https://github.com/BryanLlana/appsalon_frontend',
     githubBackend: 'https://github.com/BryanLlana/appsalon_backend',
     image: '/img/appsalon.webp',
-    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO],
+    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO, TAGS.TYPESCRIPT],
     fullstack: true
+  },
+  {
+    title: 'PointOfSale',
+    description: 'Una plataforma en línea dedicada a la comercialización de sudaderas, tenis y lentes. La aplicación cuenta con dos interfaces: una para administradores y otra para usuarios. Para acceder como administrador, se requiere iniciar sesión, lo que permitirá la gestión de productos mediante la adición, actualización y eliminación de artículos. Además, se ofrece la capacidad de obtener informes de ventas diarias.En el lado del usuario, se brinda la posibilidad de explorar todos los productos disponibles. Los usuarios pueden agregar artículos al carrito y aplicar cupones, si los tienen, para beneficiarse de descuentos especiales.',
+    link: 'https://point-of-sale-zeta.vercel.app/',
+    githubFrontend: 'https://github.com/BryanLlana/PointOfSale',
+    image: '/img/pointofsale.webp',
+    tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.FIREBASE],
+    fullstack: false
   }
 ]
 ---
 {
   projects.map(project => (
-    <article>
-      <h3 class="text-2xl font-semibold text-yellow-200 mb-2 flex gap-2 items-center">
+    <article class="mb-[50px]">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2 flex flex-col md:flex-row gap-2 md:items-center flex-wrap">
         {project.title}
         { project.fullstack ? (
           <a href={project.githubFrontend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
             <GithubIcon class="size-5" />
-            GitHubFrontend
+            GitHub Frontend
           </a>
           <a href={project.githubBackend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
             <GithubIcon class="size-5" />
-            GitHubBackend
+            GitHub Backend
           </a>
         ) : (
           <a href={project.githubFrontend} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
