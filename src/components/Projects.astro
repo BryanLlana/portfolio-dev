@@ -6,6 +6,7 @@ import MongoIcon from '../icons/MongoIcon.astro'
 import GithubIcon from '../icons/Github.astro'
 import FirebaseIcon from '../icons/FirebaseIcon.astro'
 import TypescriptIcon from '../icons/TypescriptIcon.astro'
+import ReactIcon from '../icons/ReactIcon.astro'
 const TAGS = {
   VUE: {
     name: 'VueJs',
@@ -36,9 +37,24 @@ const TAGS = {
     name: 'TypeScript',
     class: 'bg-[#EBEBEB] text-[#3178C6]',
     icon: TypescriptIcon
+  },
+  REACT: {
+    name: 'ReactJs',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: ReactIcon
   }
 }
 const projects = [
+  {
+    title: 'UpTask',
+    description: 'Aplicación Web diseñada para gestionar tareas de diversos proyectos de manera eficiente. Los usuarios tienen la capacidad de registrarse y crear cuentas, lo que les permite crear y administrar proyectos fácilmente. Cada proyecto puede contener una lista de tareas específicas relacionadas con el mismo. Además, existe la posibilidad de agregar colaboradores a cada proyecto, con diferentes niveles de acceso: los colaboradores pueden completar tareas, mientras que el creador del proyecto tiene el privilegio de editar o eliminar tanto el proyecto en sí como las tareas asociadas a él.',
+    link: 'https://up-task-frontend-iota.vercel.app',
+    githubFrontend: 'https://github.com/BryanLlana/UpTask_Frontend',
+    githubBackend: 'https://github.com/BryanLlana/UpTask_Backend',
+    image: '/img/uptask.webp',
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO],
+    fullstack: true
+  },
   {
     title: 'AppSalon',
     description: 'Aplicación web especializada para barberías o salones de belleza, que brinda a los usuarios la capacidad de crear cuentas, facilitando así la reserva de citas de manera eficiente mediante la selección de servicios personalizados según sus necesidades y preferencias. Un proyecto fullstack que engloba tanto el desarrollo del backend como del frontend, asegurando una implementación completa y eficiente que abarca la lógica del servidor y la interfaz de usuario.',
