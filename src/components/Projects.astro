@@ -7,6 +7,7 @@ import GithubIcon from '../icons/Github.astro'
 import FirebaseIcon from '../icons/FirebaseIcon.astro'
 import TypescriptIcon from '../icons/TypescriptIcon.astro'
 import ReactIcon from '../icons/ReactIcon.astro'
+import StyleComponent from '../icons/StyleComponent.astro'
 const TAGS = {
   VUE: {
     name: 'VueJs',
@@ -42,6 +43,11 @@ const TAGS = {
     name: 'ReactJs',
     class: 'bg-[#EBEBEB] text-[#3178C6]',
     icon: ReactIcon
+  },
+  STYLECOMP: {
+    name: 'Styled Components',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: StyleComponent
   }
 }
 const projects = [
@@ -75,12 +81,21 @@ const projects = [
     fullstack: false
   },
   {
+    title: 'Cotizador de CriptoMonedas',
+    description: 'Aplicación que te mantiene al tanto de los precios de las criptomonedas con actualizaciones en tiempo real, gráficos intuitivos y alertas personalizadas para tomar decisiones inteligentes sobre tus inversiones',
+    link: 'https://bright-crisp-e085dc.netlify.app',
+    githubFrontend: 'https://github.com/BryanLlana/CotizadorCripto_React',
+    image: '/img/criptomoneda.webp',
+    tags: [TAGS.REACT, TAGS.STYLECOMP],
+    fullstack: false
+  },
+  {
     title: 'Administrador de Pacientes',
     description: 'Un software dedicado a la gestión de pacientes que permite agregar, editar y eliminar registros de manera eficiente. Este sistema utiliza la tecnología de almacenamiento local para asegurar la integridad y disponibilidad de los datos de los pacientes.',
     link: 'https://stately-marzipan-3c94e2.netlify.app',
     githubFrontend: 'https://github.com/BryanLlana/AdminPacientes_React',
     image: '/img/admin_pacientes.webp',
-    tags: [TAGS.REACT],
+    tags: [TAGS.REACT, TAGS.TAILWIND],
     fullstack: false
   }
 ]
