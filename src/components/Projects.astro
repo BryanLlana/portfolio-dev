@@ -8,11 +8,20 @@ import FirebaseIcon from '../icons/FirebaseIcon.astro'
 import TypescriptIcon from '../icons/TypescriptIcon.astro'
 import ReactIcon from '../icons/ReactIcon.astro'
 import StyleComponent from '../icons/StyleComponent.astro'
+import MysqlIcon from '../icons/MysqlIcon.astro'
+import PiniaIcon from '../icons/PiniaIcon.astro'
+import TypeOrmIcon from '../icons/TypeOrmIcon.astro'
+import NestIcon from '../icons/NestIcon.astro'
 const TAGS = {
   VUE: {
     name: 'VueJs',
     class: 'bg-[#EBEBEB] text-[#41B883]',
     icon: VueIcon
+  },
+  PINIA: {
+    name: 'Pinia',
+    class: 'bg-[#EBEBEB] text-[#41B883]',
+    icon: PiniaIcon
   },
   TAILWIND: {
     name: 'Tailwind Css',
@@ -48,9 +57,34 @@ const TAGS = {
     name: 'Styled Components',
     class: 'bg-[#EBEBEB] text-[#3178C6]',
     icon: StyleComponent
+  },
+  NESTJS: {
+    name: 'NestJS',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: NestIcon
+  },
+  MYSQL: {
+    name: 'MySql',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: MysqlIcon
+  },
+  TYPEORM: {
+    name: 'TypeOrm',
+    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    icon: TypeOrmIcon
   }
 }
 const projects = [
+  {
+    title: 'MeetiShare',
+    description: `MeetiShare es una plataforma dinámica y colaborativa diseñada para facilitar el intercambio de conocimientos y la creación de comunidades en línea y presenciales. Con MeetiShare, puedes crear y unirte a grupos dedicados a tus intereses específicos, donde podrás organizar y participar en encuentros llamados "Meetis".\n\nEn MeetiShare, los usuarios tienen la libertad de crear grupos personalizados basados en sus intereses, pasiones o áreas de conocimiento. Desde programación hasta cocina, ¡hay un grupo para todos! Dentro de cada grupo, los usuarios tienen la capacidad de programar, editar y eliminar Meetis, lo que permite una flexibilidad total para organizar eventos que se adapten a las necesidades y horarios de los participantes. Es importante destacar que para unirse o participar en un Meeti, así como para realizar comentarios, es necesario crear una cuenta en la plataforma.\n\nAunque la creación de una cuenta es obligatoria para participar activamente en Meetis y realizar comentarios, los usuarios invitados pueden explorar todos los Meetis públicos y decidir si desean crear una cuenta para unirse a aquellos que les interesen. Esto fomenta una comunidad inclusiva y accesible para todos.\n\nCada Meeti cuenta con una sección de comentarios donde los participantes pueden plantear preguntas, compartir ideas o hacer observaciones relacionadas con el tema discutido. Esta función promueve la interacción y el intercambio de ideas entre los miembros de la comunidad.\n\nMeetiShare presenta una interfaz de usuario sencilla y fácil de navegar, lo que permite a los usuarios centrarse en lo más importante: conectar, aprender y compartir. Ya sea que estés buscando aprender algo nuevo, compartir tu experiencia o simplemente conectarte con personas afines, MeetiShare es el lugar ideal para explorar, crecer y colaborar con una comunidad global apasionada por el aprendizaje continuo.`,
+    link: 'https://meeti-frontend.vercel.app/',
+    githubFrontend: 'https://github.com/BryanLlana/Meeti_Frontend',
+    githubBackend: 'https://github.com/BryanLlana/Meeti_Backend',
+    image: '/img/meeti.webp',
+    tags: [TAGS.VUE, TAGS.PINIA, TAGS.TYPESCRIPT, TAGS.NESTJS, TAGS.MYSQL, TAGS.TYPEORM],
+    fullstack: true
+  },
   {
     title: 'UpTask',
     description: 'Aplicación Web diseñada para gestionar tareas de diversos proyectos de manera eficiente. Los usuarios tienen la capacidad de registrarse y crear cuentas, lo que les permite crear y administrar proyectos fácilmente. Cada proyecto puede contener una lista de tareas específicas relacionadas con el mismo. Además, existe la posibilidad de agregar colaboradores a cada proyecto, con diferentes niveles de acceso: los colaboradores pueden completar tareas, mientras que el creador del proyecto tiene el privilegio de editar o eliminar tanto el proyecto en sí como las tareas asociadas a él.',
@@ -121,7 +155,7 @@ const projects = [
           </a>
         ) }
       </h3>
-      <p class="text-lg mb-5 text-pretty">{project.description}</p>
+      <p class="text-lg mb-5 text-pretty whitespace-pre-line">{project.description}</p>
       <ul class="flex gap-2 mb-4 flex-wrap">
         {
           project.tags.map(tag => (
