@@ -12,6 +12,11 @@ import MysqlIcon from '../icons/MysqlIcon.astro'
 import PiniaIcon from '../icons/PiniaIcon.astro'
 import TypeOrmIcon from '../icons/TypeOrmIcon.astro'
 import NestIcon from '../icons/NestIcon.astro'
+import SwaggerIcon from '../icons/SwaggerIcon.astro'
+import JestIcon from '../icons/JestIcon.astro'
+import PostgreIcon from '../icons/PostgreIcon.astro'
+import ReactRouterIcon from '../icons/ReactRouterIcon.astro'
+import SequelizeIcon from '../icons/SequelizeIcon.astro'
 const TAGS = {
   VUE: {
     name: 'VueJs',
@@ -50,7 +55,7 @@ const TAGS = {
   },
   REACT: {
     name: 'ReactJs',
-    class: 'bg-[#EBEBEB] text-[#3178C6]',
+    class: 'bg-[#EBEBEB] text-[#00D8FF]',
     icon: ReactIcon
   },
   STYLECOMP: {
@@ -72,6 +77,26 @@ const TAGS = {
     name: 'TypeOrm',
     class: 'bg-[#EBEBEB] text-[#FE0902]',
     icon: TypeOrmIcon
+  },
+  JEST: {
+    name: 'Jest',
+    class: 'bg-[#EBEBEB] text-[#99425B]',
+    icon: JestIcon
+  },
+  POSTGRESQL: {
+    name: 'PostgreSql',
+    class: 'bg-[#EBEBEB] text-[#336791]',
+    icon: PostgreIcon
+  },
+  REACTROUTER: {
+    name: 'React Router',
+    class: 'bg-[#EBEBEB] text-[#FE0902]',
+    icon: ReactRouterIcon
+  },
+  SEQUELIZE: {
+    name: 'Sequelize',
+    class: 'bg-[#EBEBEB] text-[#2379BD]',
+    icon: SequelizeIcon
   }
 }
 const projects = [
@@ -104,6 +129,18 @@ const projects = [
     image: '/img/appsalon.webp',
     tags: [TAGS.VUE, TAGS.TAILWIND, TAGS.NODE, TAGS.MONGO, TAGS.TYPESCRIPT],
     fullstack: true
+  },
+  {
+    title: 'CRUD Productos',
+    description: 'ProductManager simplifica la gestión de inventario. Obtiene automáticamente todos los productos al inicio y te permite editar, eliminar y actualizar la disponibilidad fácilmente.',
+    link: 'https://product-manager-frontend-five.vercel.app',
+    githubFrontend: 'https://github.com/BryanLlana/Product_manager_frontend',
+    githubBackend: 'https://github.com/BryanLlana/Product_manager_backend',
+    image: '/img/products_manager.webp',
+    tags: [TAGS.REACT, TAGS.REACTROUTER, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.NODE, TAGS.POSTGRESQL, TAGS.SEQUELIZE, TAGS.JEST],
+    fullstack: true,
+    doc: true,
+    docLink: 'https://product-manager-backend-wdmu.onrender.com/docs/'
   },
   {
     title: 'PointOfSale',
@@ -148,7 +185,7 @@ const projects = [
     githubFrontend: 'https://github.com/BryanLlana/AdminPacientes_React',
     image: '/img/admin_pacientes.webp',
     tags: [TAGS.REACT, TAGS.TAILWIND],
-    fullstack: false
+    fullstack: false,
   }
 ]
 ---
@@ -172,6 +209,12 @@ const projects = [
             GitHub
           </a>
         ) }
+        { project.doc && (
+          <a href={project.docLink} class={`flex gap-2 rounded-full text-[1rem] font-semibold py-1 px-2 text-white items-center`}>
+            <SwaggerIcon class="size-5" />
+            Documentación
+          </a>
+        )}
       </h3>
       <p class="text-lg mb-5 text-pretty whitespace-pre-line">{project.description}</p>
       <ul class="flex gap-2 mb-4 flex-wrap">
